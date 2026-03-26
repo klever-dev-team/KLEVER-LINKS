@@ -45,13 +45,18 @@ body{font-family:'DM Sans',sans-serif;color:var(--white)}
   font-size:clamp(32px,9vw,54px);
   letter-spacing:.08em;
   text-transform:uppercase;
-  line-height:1.1;
+  line-height:1.2;
   position:relative;
   cursor:default;
-  /* Changed from flex to block/text-align center so individual letters center perfectly */
-  display:block;
+  
+  /* THE FIX: Flexbox with wrapping so it centers without breaking off-screen */
+  display:flex;
+  flex-wrap:wrap; 
+  justify-content:center;
+  align-items:center;
   text-align:center;
   width:100%;
+  
   color: var(--gold);
   text-shadow:
     0 0 30px rgba(232,184,75,.6),
