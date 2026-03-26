@@ -38,13 +38,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--white)}
 @keyframes pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.7);opacity:0}}
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 
-.name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(24px,6vw,34px);letter-spacing:-1px;text-align:center;animation:fadeUp .55s ease both;position:relative}
-.glitch{position:relative;display:inline-block}
-.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;font-family:'Syne',sans-serif;font-weight:800}
-.glitch::before{color:var(--tt);clip-path:polygon(0 0,100% 0,100% 35%,0 35%);animation:gTop 5s infinite 2.5s}
-.glitch::after{color:var(--tg);clip-path:polygon(0 65%,100% 65%,100% 100%,0 100%);animation:gBot 5s infinite 2.5s}
-@keyframes gTop{0%,88%,100%{transform:translate(0)}90%{transform:translate(-3px,-1px)}93%{transform:translate(3px,1px)}96%{transform:translate(-2px,0)}}
-@keyframes gBot{0%,88%,100%{transform:translate(0)}90%{transform:translate(3px,1px)}93%{transform:translate(-3px,-1px)}96%{transform:translate(2px,0)}}
+.name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(24px,6vw,34px);letter-spacing:-1px;text-align:center;animation:fadeUp .55s ease both;color:#d4af37;}
 
 .tagline{font-size:12px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:8px;text-align:center;animation:fadeUp .65s ease both}
 
@@ -113,11 +107,6 @@ body{font-family:'DM Sans',sans-serif;color:var(--white)}
 .arr{font-size:18px;color:var(--muted);transition:transform .2s,color .2s}
 .btn:hover .arr{transform:translateX(5px);color:var(--white)}
 
-.stats{display:flex;gap:36px;margin-top:38px;animation:fadeUp .9s ease both;animation-delay:.48s}
-.stat{text-align:center}
-.stat-n{font-family:'Syne',sans-serif;font-weight:800;font-size:24px;color:var(--gold);display:block}
-.stat-l{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-
 .footer{margin-top:30px;font-size:11px;color:rgba(245,245,240,.18);letter-spacing:.08em;text-align:center;animation:fadeUp 1s ease both;animation-delay:.6s}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
@@ -136,7 +125,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--white)}
     <div class="av-p av-p2"></div>
   </div>
 
-  <h1 class="name"><span class="glitch" data-text="Klever Kitchen">Klever Kitchen</span></h1>
+  <h1 class="name">Klever Kitchen</h1>
   <p class="tagline">Ethiopian Kitchen Manufacturing · Addis Ababa</p>
 
   <div class="ticker-wrap">
@@ -174,12 +163,6 @@ body{font-family:'DM Sans',sans-serif;color:var(--white)}
     </a>
   </div>
 
-  <div class="stats">
-    <div class="stat"><span class="stat-n" id="c1">0</span><span class="stat-l">Projects</span></div>
-    <div class="stat"><span class="stat-n" id="c2">0</span><span class="stat-l">Clients</span></div>
-    <div class="stat"><span class="stat-n" id="c3">0</span><span class="stat-l">Years</span></div>
-  </div>
-
   <p class="footer">© 2026 Klever Kitchen · Addis Ababa, Ethiopia</p>
 </div>
 
@@ -212,5 +195,18 @@ draw();
 /* CURSOR GLOW */
 const glow=document.getElementById('glow');
 addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+
+/* 3D TILT */
+document.querySelectorAll('.btn').forEach(b=>{
+  b.addEventListener('mousemove',e=>{
+    const r=b.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    b.style.transform=`perspective(600px) rotateX(${-y*9}deg) rotateY(${x*11}deg) translateY(-3px) scale(1.018)`;
+  });
+  b.addEventListener('mouseleave',()=>{b.style.transition='transform .45s ease';b.style.transform='perspective(600px) rotateX(0) rotateY(0) translateY(0) scale(1)'});
+  b.addEventListener('mouseenter',()=>{b.style.transition='transform .08s ease'});
+});
+</script>
 </body>
 </html>
