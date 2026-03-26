@@ -20,9 +20,12 @@ body{font-family:'DM Sans',sans-serif;color:var(--white)}
 
 .blobs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;filter:blur(80px)}
 .blob{position:absolute;border-radius:50%;opacity:.1;animation:blobMove 13s ease-in-out infinite alternate}
-.b1{width:500px;height:500px;background:var(--gold);top:-120px;left:-160px;animation-duration:14s}
-.b2{width:420px;height:420px;background:#c84b8e;bottom:-120px;right:-120px;animation-duration:11s;animation-delay:-5s}
-.b3{width:300px;height:300px;background:#4b7ec8;top:45%;left:55%;animation-duration:9s;animation-delay:-8s}
+/* Red Blob (top-left) */
+.b1{width:500px;height:500px;background:#cc0000;top:-120px;left:-160px;animation-duration:14s}
+/* Yellow Blob (bottom-right) */
+.b2{width:420px;height:420px;background:#ffd700;bottom:-120px;right:-120px;animation-duration:11s;animation-delay:-5s}
+/* Black/Dark Blob (center-right) */
+.b3{width:300px;height:300px;background:#1a1a1a;top:45%;left:55%;animation-duration:9s;animation-delay:-8s}
 @keyframes blobMove{0%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-40px) scale(1.1)}100%{transform:translate(-20px,30px) scale(.95)}}
 
 #glow{position:fixed;width:320px;height:320px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(232,184,75,.06) 0%,transparent 70%);transform:translate(-50%,-50%);transition:left .08s linear,top .08s linear}
@@ -38,7 +41,8 @@ body{font-family:'DM Sans',sans-serif;color:var(--white)}
 @keyframes pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.7);opacity:0}}
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 
-.name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(24px,6vw,34px);letter-spacing:-1px;text-align:center;animation:fadeUp .55s ease both;color:#d4af37;}
+/* Non-glitching, elegant gold for the name */
+.name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(24px,6vw,34px);letter-spacing:-1px;text-align:center;color:#b08d57;animation:fadeUp .55s ease both;position:relative}
 
 .tagline{font-size:12px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:8px;text-align:center;animation:fadeUp .65s ease both}
 
@@ -130,8 +134,8 @@ body{font-family:'DM Sans',sans-serif;color:var(--white)}
 
   <div class="ticker-wrap">
     <div class="ticker">
-      <span>Premium Kitchens</span><span>✦</span><span>Addis Ababa</span><span>✦</span><span>Custom Design</span><span>✦</span><span>Quality Craftsmanship</span><span>✦</span>
-      <span>Premium Kitchens</span><span>✦</span><span>Addis Ababa</span><span>✦</span><span>Custom Design</span><span>✦</span><span>Quality Craftsmanship</span><span>✦</span>
+      <span>✦ Premium Kitchens ✦ Addis Ababa ✦ Custom Design ✦</span>
+      <span>✦ Premium Kitchens ✦ Addis Ababa ✦ Custom Design ✦</span>
     </div>
   </div>
 
@@ -156,7 +160,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--white)}
       <div class="lbl">Instagram<small>See our latest work</small></div>
       <div class="ping"></div><span class="arr">→</span>
     </a>
-    <a href="https://YOUR_WEBSITE.com" target="_blank" rel="noopener" class="btn btn-ws">
+    <a href="https://kleverküche.com" target="_blank" rel="noopener" class="btn btn-ws">
       <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
       <div class="lbl">Our Website<small>kleverküche.com</small></div>
       <div class="ping"></div><span class="arr">→</span>
