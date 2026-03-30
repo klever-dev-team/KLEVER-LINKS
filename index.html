@@ -32,7 +32,7 @@ html, body {
   background: #050508;
   min-height: 100vh;
   overflow-x: hidden;
-  overflow-y: auto;   /* allow scroll if needed, but no forced overflow */
+  overflow-y: auto;
 }
 
 body {
@@ -137,7 +137,7 @@ body {
   margin-bottom: 18px;
   width: 100%;
   max-width: 100vw;
-  overflow: visible;   /* allow glow to extend without clipping */
+  overflow: visible;
 }
 
 .logo-text {
@@ -150,7 +150,6 @@ body {
   color: var(--gold);
   text-shadow: 0 0 28px rgba(232, 184, 75, 0.55), 0 0 45px rgba(232, 184, 75, 0.25);
   
-  /* one‑line + centering */
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -160,19 +159,18 @@ body {
   max-width: 96vw;
   margin-left: auto;
   margin-right: auto;
-  position: relative;   /* for pseudo-element */
+  position: relative;
   z-index: 2;
 }
 
-/* Organic glow – follows text shape, fades naturally */
 .logo-text::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 130%;          /* slightly larger than text to create aura */
-  height: 180%;         /* extra vertical softness */
+  width: 130%;
+  height: 180%;
   background: radial-gradient(ellipse at center,
     rgba(232, 184, 75, 0.25) 0%,
     rgba(232, 184, 75, 0.08) 40%,
@@ -471,7 +469,7 @@ body {
 @media (max-width: 680px) {
   .logo-text {
     letter-spacing: 0.04em;
-    font-size: clamp(28px, 6.5vw, 48px);
+    font-size: clamp(28px, 6vw, 42px);
   }
   .logo-text .space-char {
     width: 0.38em;
@@ -483,7 +481,12 @@ body {
   }
 }
 
+/* Made logo significantly smaller for phones */
 @media (max-width: 560px) {
+  .logo-text {
+    font-size: clamp(22px, 5.5vw, 32px); /* Much smaller on mobile */
+    letter-spacing: 0.03em;
+  }
   .wrap {
     padding: 32px 20px 48px;
   }
@@ -541,22 +544,21 @@ body {
       <div class="ping"></div><span class="arr">→</span>
     </a>
     <a href="https://www.instagram.com/klever.kuche?igsh=NGEybXp0ZTc1N2F4" target="_blank" rel="noopener" class="btn btn-ig">
-  <div class="ico">
-    <svg viewBox="0 0 24 24" fill="none">
-      <defs>
-        <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#f09433"/>
-          <stop offset="50%" stop-color="#dc2743"/>
-          <stop offset="100%" stop-color="#bc1888"/>
-        </linearGradient>
-      </defs>
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="url(#igGrad)"/>
-    </svg>
-  </div>
-  <div class="lbl">Instagram<small>See our latest work</small></div>
-  <div class="ping"></div>
-  <span class="arr">→</span>
-</a>
+      <div class="ico">
+        <svg viewBox="0 0 24 24" fill="none">
+          <defs>
+            <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#f09433"/>
+              <stop offset="50%" stop-color="#dc2743"/>
+              <stop offset="100%" stop-color="#bc1888"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="url(#igGrad)"/>
+        </svg>
+      </div>
+      <div class="lbl">Instagram<small>See our latest work</small></div>
+      <div class="ping"></div>
+      <span class="arr">→</span>
     </a>
     <a href="https://sites.google.com/view/kleverkitchens/products" target="_blank" rel="noopener" class="btn btn-ws">
       <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#e8b84b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
