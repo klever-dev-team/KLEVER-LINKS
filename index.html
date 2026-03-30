@@ -6,12 +6,34 @@
 <title>Klever Küche | premium kitchen manufacturing</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+/* Aggressive reset to kill all blue tap highlights */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+/* Forcefully disable the copy menu and text selection */
+html, body {
+  background: #050508;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  -webkit-touch-callout: none; /* Disables the long-press popup menu on iOS */
+  -webkit-user-select: none;   /* Safari */
+  -khtml-user-select: none;    /* Konqueror HTML */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Standard */
+}
+
+a {
+  -webkit-user-drag: none; /* Prevents holding and dragging the button */
 }
 
 :root {
@@ -28,25 +50,10 @@
   --border: rgba(255, 255, 255, 0.08);
 }
 
-html, body {
-  background: #050508;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
 body {
   font-family: 'DM Sans', sans-serif;
   color: var(--white);
   line-height: 1.4;
-  
-  /* Prevents text selection and annoying copy popups on mobile */
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  
-  /* Removes the grey/blue flash when tapping buttons on phones */
-  -webkit-tap-highlight-color: transparent;
 }
 
 /* canvas particles */
